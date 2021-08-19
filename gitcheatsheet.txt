@@ -69,6 +69,8 @@
 	-To push a modification onto the git the add command must be followed by a commit containing a brief 
 	 description of the some of the modification that are made
 		- $ git commit -m "the description is written here"
+	-To perform both a git add and git commit at the same time on only modified files the following can be used
+		- $ git commit -am "the description is written here"
 	-Finally the modification can be pushed onto the online repository using the git push command
 		- $ git push origin master	
 #START A REPO LOCALLY
@@ -88,5 +90,53 @@ GITHUB WORKFLOW : Write code --> Commit Changes --> Make a pull request
 
 LOCAL GIT WORKFLOW : Write code --> Stage Changes(git add) --> Commit Changes --> Push Changes --> Make a Pull Request
 
-# Git Branching
+# GIT BRANCHING
+		
+Commit #1 ----- Commit #2 ----- Commit #3 ----- Commit #4 ----- Merge				MASTER BRANCH
+					\		        /
+					 \		       /
+					Commit #1 ----- Commit #2	FEATURE BRANCH
 
+	-The master branch is the main or default branch in a repository
+	-It is also possible to create another branch that is a feature branch as can be seen above. First the 
+	feature and master branch share the first 3 commits but then they divulge into 2 separate version of the
+	original code.
+	-Each branch has no way of knowing the commits of other branchs.
+	-This is useful to build-out new features without damagin the original code
+	-This very helpful when many people work on this one repository
+	-To check the branches the git branch command can be used.
+	-The current branch is starred and highlighted
+	-A new branch can be created using git checkout -b 	
+		- $ git checkout -b <branch name>
+	-The branches can be merged locally using the git merge command but before that they can be compared
+	 using the git diff command
+		- $ git diff <branch name>
+	-Before merging push using  git push --set-uptstream origin <branch name>
+	-A pull request must be made from the feature branch to the master branch
+	-The compare branch will be merged into the base branch
+	-To execute a pull request use the command git pull origin master unless an upstream is set
+	-Once done with the feature branch the branch can be deleted using git branch -d <branch name>
+		- $ git merge <branch name>
+	-Merging is not always straight forward, when two lines are conflicting changes must be commited before 
+	 switching branches.
+	-When merging locally a master branch to the feature branch to keep the branch up to date with the master, 
+	 it is possible to have a merge conflict.
+	-Merge conflicts can be resolved through the code editor.
+
+# UNDO A COMMIT
+	
+	-A file can be unstaged using the git reset command 
+	-Using git reset again can be used to cancel the previous commit
+		- $ git reset HEAD~1 to go one commit back
+		- $ git reset HEAD~2 to go two commits back
+	-git log will show a log of all the last commits that have been done
+	-Each commit has their own hash that can be used as a reference to go back to these commits
+		- $ git reset <hash of the commit> to unstage the changes
+		- $ git reset --hard <hash of the commit> to delete all of the later changes and go ack in time
+# FORKING IN GIT
+
+	-Forking makes a complete copy of the repository, can be used to change some of the code of different
+	 repositories.
+	-The repository can be copied onto my own github and changed to work on a copy of the project.
+	-This can be done on the gihub website.
+	-If you wanted to merge the changes back into the original project a pull request can be created 
