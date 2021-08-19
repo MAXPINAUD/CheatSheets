@@ -82,3 +82,11 @@
 	-Now git push can be used, and an upstream can be set by using 
 		- $ git push -u origin master
 	
+# THE DIFFERENT WORKFLOWS
+
+GITHUB WORKFLOW : Write code --> Commit Changes --> Make a pull request
+
+LOCAL GIT WORKFLOW : Write code --> Stage Changes(git add) --> Commit Changes --> Push Changes --> Make a Pull Request
+
+# Git Branching
+
