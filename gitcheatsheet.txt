@@ -1,0 +1,84 @@
+
+#GIT:
+
+	Git is a free open source version control system. Version control is a way for programmers to manage 
+	changes done to code. This keeps track of different changes done to code.
+
+#Terms:
+
+	-Directory is a folder on your computer
+	-CLI is the command line interface
+	-Code editor is a word processor for writing code
+	-Repository is the project or the folder where the project is kept
+	-Github is the website that hosts all of the git repositories
+	
+#Git Commands:
+
+	Clone:
+	-Bring a repository that is hosted somewhere like github in a directory of your local machine
+
+	Add:
+	-Track your files and changes in git
+
+	Commit:
+	-Save your files in Git
+
+	Push:
+	-Upload your Git commits to a remote repository like Github
+
+	Pull:
+	-Download the changes from a remote repository onto your local machine, the opposite of the push command.
+
+#Using Git on local machine:
+
+#CONNECTING THE MACHINE TO GITHUB
+	-To prove that you are the owner of the github and connect to your github you must provide an ssh key. 
+	- $ ssh-keygen -t rsa -b 4096 -C "github.example@email.com"
+	-The key must then be saved in a specific file and there is an optional passphrase.
+	-Two keys will be generated, the one to upload to github is the .pub key as it is a public key. Your local
+	 key is just for you it is secret.
+	-Key can be copied and pasted onto github ssh or gpg keys.
+	-The key must then be added to the ssh-agent using $ eval "$(ssh-agent -s)"
+	-Then modifying the ~/.ssh/config file
+	-Using the ssh-add command to add the ssh key 
+
+#THE COMMANDS
+
+	-By default Git will create a branch called master when you create a new repository with git init.	
+	-To set main as the global branch name $ git config --global init.defaultBranch main
+	-To clone a repository $ git clone "repository SSH link" -t "target directory"
+	-These are configuration setting when installing git on a new machine. These setup the name, the email
+	  the color of the output, the preferred text editor and that we want to use the settings globally.
+	  Use git config to set parameters of local git:
+		- $ git config --global user.name "USER NAME"
+		- $ git config --global user.email "USER@EMAIL.COM"
+		- $ git config --global color.ui "auto"
+		- $ git config --global core.editor "NAME OF EDITOR"
+		- $ git config --list
+	
+	-Firstly to make sure that the target branch exists by running the git branch command
+		- $ git branch
+	-The easiest way to switch branch is using the git checkout command and specifying the name of the branch 
+	 that you are switching to. 
+		- $ git checkout <existing_branch>
+ 		- $ git checkout -b <new_branch>
+	-The git show command shows you the working file with all of the modifications that have been done to it
+		- $ git show
+	-To move a modification or a new file onto the git the command git add can be used
+		- $ git add <file name>
+	-To push a modification onto the git the add command must be followed by a commit containing a brief 
+	 description of the some of the modification that are made
+		- $ git commit -m "the description is written here"
+	-Finally the modification can be pushed onto the online repository using the git push command
+		- $ git push origin master	
+#START A REPO LOCALLY
+
+	-Move to the folder where you want to create the repository
+	-Use the git init to initialize the repository
+		- $ git init
+	-Then go one to use git add and git commit  
+	-You can create an empty repository on Github and to add a reference to the remote repository
+		- $ git remote add origin "ssh link to the repository"
+	-Now git push can be used, and an upstream can be set by using 
+		- $ git push -u origin master
+	

@@ -1,0 +1,10 @@
+#BASH:
+
+	-pwd is print working directory, it gives you the current directory
+	-cd change directory, it allows the user to chage directory
+	-ls list, prints all of the elements contained within the directory
+	-cat is a command to concatenate files and also display their
+	 contents. 
+	-pbcopy allows you to copy file by doig the following:
+		- $ pbcopy < /path/to/file
+
